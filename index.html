@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#12040b">
+<title>A Heart Made of Languages ❤️</title>
+<style>
+  :root { --red: #ff244f; --pink: #ff6b8a; --bg: #12040b; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; overflow-x: hidden; color: #fff;
+    background: radial-gradient(ellipse at center, #3b071b 0%, #1c0611 45%, #090208 100%);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 28px 14px 38px;
+  }
+  .intro { text-align: center; z-index: 2; max-width: 760px; }
+  h1 { margin: 0 0 8px; color: #ff496d; font-size: clamp(1.7rem, 5vw, 3rem); text-shadow: 0 0 18px #ff174b88; }
+  .subtitle { color: #ffd4de; margin: 0 auto 16px; line-height: 1.6; }
+  .heart-stage { width: min(94vw, 650px); aspect-ratio: 1 / 0.88; position: relative; margin: 0 auto; }
+  .heart-glow {
+    position: absolute; inset: 8% 10% 8%; background: #ff174b12; filter: blur(28px);
+    border-radius: 50%; animation: glow 2.4s ease-in-out infinite;
+  }
+  .heart-outline {
+    position: absolute; width: 68%; height: 68%; left: 16%; top: 13%;
+    transform: rotate(-45deg); border-left: 2px solid #ff244f55; border-bottom: 2px solid #ff244f55;
+    border-radius: 0 0 0 8%; pointer-events: none;
+  }
+  .heart-outline::before, .heart-outline::after {
+    content: ""; position: absolute; width: 100%; height: 100%;
+    border: 2px solid #ff244f55; border-radius: 50%;
+  }
+  .heart-outline::before { top: -50%; left: 0; border-bottom-color: transparent; border-right-color: transparent; }
+  .heart-outline::after { left: 50%; top: 0; border-left-color: transparent; border-bottom-color: transparent; }
+  .language {
+    position: absolute; transform: translate(-50%, -50%);
+    color: var(--red); font-weight: 750; white-space: nowrap;
+    font-size: clamp(9px, 1.7vw, 14px); text-shadow: 0 0 7px #ff244f88;
+    animation: float 2.8s ease-in-out infinite; opacity: 0;
+    animation-name: appearFloat; animation-duration: 1.2s, 2.8s;
+    animation-timing-function: ease-out, ease-in-out; animation-fill-mode: forwards, both;
+    animation-iteration-count: 1, infinite;
+  }
+  .language.hindi { color: #ff365f; font-size: clamp(11px, 2vw, 16px); }
+  .language.nepali { color: #ff8da4; font-size: clamp(12px, 2.2vw, 17px); }
+  .center-note {
+    position: absolute; left: 50%; top: 53%; transform: translate(-50%, -50%);
+    text-align: center; width: 34%; color: #ffe5eb; font-size: clamp(10px, 2vw, 15px);
+    line-height: 1.45; text-shadow: 0 0 12px #ff174b99; animation: heartbeat 1.6s infinite;
+  }
+  .center-note strong { display: block; color: #ff5275; font-size: 1.2em; }
+  .footer { text-align: center; color: #f7b9c7; font-size: .9rem; line-height: 1.6; max-width: 600px; margin-top: 2px; }
+  .footer button {
+    margin-top: 10px; border: 1px solid #ff5375; color: white; background: #9f1239;
+    border-radius: 999px; padding: 10px 18px; cursor: pointer; font: inherit;
+    box-shadow: 0 0 18px #ff174b33;
+  }
+  .footer button:hover { background: #c9184a; }
+  .spark {
+    position: fixed; width: 4px; height: 4px; background: #ff6b8a; border-radius: 50%;
+    box-shadow: 0 0 12px #ff244f; pointer-events: none; animation: sparkle 4s linear infinite;
+  }
+  @keyframes heartbeat { 0%,100% { transform: translate(-50%,-50%) scale(1); } 50% { transform: translate(-50%,-50%) scale(1.07); } }
+  @keyframes glow { 0%,100% { opacity: .45; transform: scale(.96); } 50% { opacity: .9; transform: scale(1.04); } }
+  @keyframes appearFloat { 0% { opacity: 0; translate: 0 10px; } 100% { opacity: 1; translate: 0 0; } }
+  @keyframes float { 0%,100% { margin-top: 0; } 50% { margin-top: -5px; } }
+  @keyframes sparkle { 0% { transform: translateY(105vh) scale(.3); opacity: 0; } 15% { opacity: .8; } 90% { opacity: .8; } 100% { transform: translateY(-10vh) scale(1.2); opacity: 0; } }
+  @media (max-width: 420px) {
+    .heart-stage { width: 100vw; margin-left: -4px; }
+    .language { font-size: 8px; }
+    .center-note { width: 32%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+  <header class="intro">
+    <h1>A Heart Made of Languages ❤️</h1>
+    <p class="subtitle">Different languages. One little heart. Made especially for you.</p>
+  </header>
+
+  <main class="heart-stage" aria-label="A heart-shaped arrangement of I love you in many languages">
+    <div class="heart-glow"></div>
+    <div class="heart-outline"></div>
+    <div class="center-note"><strong>For You</strong>Across every language,<br>you are special ❤️</div>
+  </main>
+
+  <section class="footer">
+    <div>Every word travels around the heart, just to say something simple and meaningful.</div>
+    <button id="replay">Replay the heart ✨</button>
+  </section>
+
+<script>
+  // Hindi is second-last and Nepali is the final language, as requested.
+  const phrases = [
+    ["English", "I love you"], ["Spanish", "Te amo"], ["French", "Je t’aime"],
+    ["Italian", "Ti amo"], ["Portuguese", "Eu te amo"], ["German", "Ich liebe dich"],
+    ["Dutch", "Ik hou van jou"], ["Swedish", "Jag älskar dig"], ["Norwegian", "Jeg elsker deg"],
+    ["Danish", "Jeg elsker dig"], ["Finnish", "Rakastan sinua"], ["Polish", "Kocham cię"],
+    ["Greek", "Σ’ αγαπώ"], ["Russian", "Я тебя люблю"], ["Ukrainian", "Я тебе кохаю"],
+    ["Turkish", "Seni seviyorum"], ["Arabic", "أحبك"], ["Persian", "دوستت دارم"],
+    ["Hebrew", "אני אוהב/ת אותך"], ["Chinese", "我爱你"], ["Japanese", "愛してる"],
+    ["Korean", "사랑해"], ["Thai", "ฉันรักคุณ"], ["Vietnamese", "Anh yêu em"],
+    ["Indonesian", "Aku cinta kamu"], ["Malay", "Saya sayang awak"], ["Filipino", "Mahal kita"],
+    ["Swahili", "Nakupenda"], ["Zulu", "Ngiyakuthanda"], ["Hawaiian", "Aloha wau iā ʻoe"],
+    ["Irish", "Tá grá agam duit"], ["Latin", "Te amo"], ["Bengali", "আমি তোমাকে ভালোবাসি"],
+    ["Tamil", "நான் உன்னை காதலிக்கிறேன்"], ["Telugu", "నేను నిన్ను ప్రేమిస్తున్నాను"],
+    ["Kannada", "ನಾನು ನಿನ್ನನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ"], ["Marathi", "माझं तुझ्यावर प्रेम आहे"],
+    ["Punjabi", "ਮੈਂ ਤੈਨੂੰ ਪਿਆਰ ਕਰਦਾ/ਕਰਦੀ ਹਾਂ"], ["Gujarati", "હું તને પ્રેમ કરું છું"],
+    ["Urdu", "مجھے تم سے محبت ہے"], ["Hindi", "मैं तुमसे प्यार करता/करती हूँ"],
+    ["Nepali", "म तिमीलाई माया गर्छु"]
+  ];
+
+  const stage = document.querySelector(".heart-stage");
+  let nodes = [];
+  // Heart curve: x=16 sin^3(t), y=13 cos(t)-5 cos(2t)-2 cos(3t)-cos(4t)
+  function drawHeart() {
+    nodes.forEach(n => n.remove()); nodes = [];
+    const box = stage.getBoundingClientRect();
+    const w = box.width, h = box.height;
+    const count = phrases.length;
+    phrases.forEach((item, i) => {
+      const t = (Math.PI * 2 * i / count);
+      const x0 = 16 * Math.pow(Math.sin(t), 3);
+      const y0 = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t);
+      const x = 50 + x0 * 2.05;
+      const y = 48 - y0 * 2.15;
+      const el = document.createElement("span");
+      el.className = "language" + (item[0] === "Hindi" ? " hindi" : item[0] === "Nepali" ? " nepali" : "");
+      el.textContent = item[1];
+      el.title = item[0];
+      el.style.left = Math.max(5, Math.min(95, x)) + "%";
+      el.style.top = Math.max(8, Math.min(91, y)) + "%";
+      el.style.animationDelay = (i * 0.045) + "s, " + ((i % 8) * 0.16) + "s";
+      stage.appendChild(el); nodes.push(el);
+    });
+  }
+  function addSparkles() {
+    document.querySelectorAll(".spark").forEach(n => n.remove());
+    for (let i=0; i<18; i++) {
+      const s = document.createElement("i"); s.className = "spark";
+      s.style.left = (Math.random()*100) + "vw";
+      s.style.animationDelay = (Math.random()*4) + "s";
+      s.style.animationDuration = (3 + Math.random()*4) + "s";
+      document.body.appendChild(s);
+    }
+  }
+  document.getElementById("replay").addEventListener("click", () => { drawHeart(); addSparkles(); });
+  window.addEventListener("resize", drawHeart);
+  drawHeart(); addSparkles();
+</script>
+</body>
+</html>
